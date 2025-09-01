@@ -30,7 +30,6 @@ def get_employees(
                 db: Session = Depends(get_db)
                   ):
     skip = (page - 1) * limit
-    # Chỉ gọi service, không xử lý logic ở đây
     return sevice.list_employees(
         db,
         department=department,
@@ -44,7 +43,6 @@ def update_work_schedule(
     data: WorkScheduleUpdate,
     db: Session = Depends(get_db)
 ):
-    # Chỉ gọi service, không xử lý logic ở đây
     return update_or_create_schedule(
         db,
         employee_id=data.employee_id,
